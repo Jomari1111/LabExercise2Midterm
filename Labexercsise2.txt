@@ -1,0 +1,82 @@
+MainPage.XAML
+
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp4"
+             x:Class="MauiApp4.MainPage">
+
+    <Grid Padding="20" RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Sample Label" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" />
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Grid.Row="0">
+            <Button Text="Vertical Start" Clicked="OnVerticalStart" />
+            <Button Text="Vertical Center" Clicked="OnVerticalCenter" />
+            <Button Text="Vertical End" Clicked="OnVerticalEnd" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Grid.Row="1">
+            <Button Text="Horizontal Start" Clicked="OnHorizontalStart" />
+            <Button Text="Horizontal Center" Clicked="OnHorizontalCenter" />
+            <Button Text="Horizontal End" Clicked="OnHorizontalEnd" />
+        </HorizontalStackLayout>
+
+        <Image x:Name="target" HeightRequest="120" WidthRequest="120" Grid.Row="2">
+            <Image.Source>
+                <UriImageSource Uri="https://static.wikia.nocookie.net/shipping/images/0/02/Satoru_Gojo.png" />
+            </Image.Source>
+        </Image>
+        
+    </Grid>
+
+</ContentPage>
+
+MainPage.XAML.CS
+using Microsoft.Maui.Controls;
+
+namespace MauiApp4
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        private void OnVerticalStart(object sender, EventArgs e)
+        {
+            target.VerticalOptions = LayoutOptions.Start;
+        }
+
+        private void OnVerticalCenter(object sender, EventArgs e)
+        {
+            target.VerticalOptions = LayoutOptions.Center;
+        }
+
+        private void OnVerticalEnd(object sender, EventArgs e)
+        {
+            target.VerticalOptions = LayoutOptions.End;
+        }
+
+        private void OnHorizontalStart(object sender, EventArgs e)
+        {
+            target.HorizontalOptions = LayoutOptions.Start;
+        }
+
+        private void OnHorizontalCenter(object sender, EventArgs e)
+        {
+            target.HorizontalOptions = LayoutOptions.Center;
+        }
+
+        private void OnHorizontalEnd(object sender, EventArgs e)
+        {
+            target.HorizontalOptions = LayoutOptions.End;
+        }
+    }
+}
